@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+public class ExpenseTracker {
+
+    // Method to add an expense without instantiating a custom object
+    public static String getExpense(List<HashMap<String, Object>> expenses, String date, String description, double amount) {
+        // Create a HashMap to store the expense data
+        HashMap<String, Object> expense = new HashMap<>();
+        
+        // Add the expense details to the map
+        expense.put("date", date);
+        expense.put("description", description);
+        expense.put("amount", amount);
+        
+        // Add the expense map to the expenses list
+        expenses.add(expense);
+        
+        // Return a confirmation message
+        return "Expense added!";
+    }
+
+    public static void main(String[] args) {
+        // Create a list to hold all expenses
+        List<HashMap<String, Object>> expenses = new ArrayList<>();
+
+        // Add an expense using the getExpense method
+        System.out.println(getExpense(expenses, "2025-02-26", "Lunch", 15.50));
+        System.out.println(getExpense(expenses, "2025-02-26", "Coffee", 3.75));
+
+        // Print all expenses
+        for (HashMap<String, Object> expense : expenses) {
+            System.out.println(expense);
+        }
+    }
+}
